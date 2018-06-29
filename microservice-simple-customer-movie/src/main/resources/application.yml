@@ -1,0 +1,36 @@
+server:
+  port: 8010
+spring:
+  application:
+    name: microservice-consumer-movie
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://user:password123@localhost:8761/eureka/
+    healthcheck:
+      enabled:  true
+
+  instance:
+    prefer-ip-address: true
+logging:
+  level:
+    com.itmuch.cloud.microservicesimplecustomermovie.FeignClient: DEBUG
+
+---
+server:
+  port: 8020
+
+spring:
+  application:
+    name: microservice-consumer-movie-hystrix
+
+  profiles: dev
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://user:password123@localhost:8761/eureka/
+
+  instance:
+    prefer-ip-address: true

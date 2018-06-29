@@ -1,0 +1,93 @@
+server:
+  port: 8040
+spring:
+  application:
+    name: microservice-gateway-zuul
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://user:password123@localhost:8761/eureka
+
+
+
+hystrix.command.default.execution.isolation.thread.timeoutInMilliseconds: 60000
+ribbon:
+  ConnectionTimeout: 3000
+  ReadTimeout: 60000
+
+#zuul:
+#  sensitive-headers: Cookie,Set-Cookie,Authorization
+#
+
+
+
+
+
+#zuul:
+#  routes:
+#    microservice-provider-user:
+#      path: /users/**
+#      url: http://downstream
+#      sensitive-headers: Cookie,Set-Cookie,Authorization
+
+
+#zuul:
+#  routes:
+#    microservice-provider-user: /user/**
+#  ignored-patterns: /**/admin/**
+
+#zuul:
+#  prefix: /api
+#  strip-prefix: true
+#  routes:
+#    microservice-provider-user:
+#      path: /user/**
+#      strip-prefix: true
+
+#zuul:
+#  routes:
+#    user-route:
+#      path: /user/**
+#      service-id: microservice-provider-user
+#  ignored-services: '*'
+#
+#ribbon:
+#  eureka:
+#    enabled: false
+#
+#
+#microservice-provider-user:
+#  ribbon:
+#    listOfServers: localhost:8001,localhost:8000
+
+#zuul:
+#  routes:
+#    user-route:
+#      url: http://localhost:8000/
+#      path: /user/**
+
+#指定微服务的serviceid和对应路径
+#zuul:
+#  routes:
+#    user-route:
+#      service-id: provider-microservice-user
+#      path: /user/**
+#
+
+
+
+#忽略所有微服务，只路由指定微服务
+#  ignored-services: '*'
+#  routes:
+#    microservice-provider-user: /user/**
+
+#zuul网关的路由信息配置
+#  routes:
+#    microservice-provider-user: /user/**
+#  ignored-services: microservice-consumer-movie,microservice-provider-user
+
+
+
+
+
